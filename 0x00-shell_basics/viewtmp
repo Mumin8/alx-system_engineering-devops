@@ -1,0 +1,3 @@
+#!/bin/bash
+ls /tmp/ 
+ls /tmp/my_first_directory/
