@@ -1,2 +1,2 @@
 #!/bin/bash
-find -mindepth 0 -empty | rev | cut -d '/' -f 1 | rev
+find -mindepth 0 -empty '\' | ls -1
