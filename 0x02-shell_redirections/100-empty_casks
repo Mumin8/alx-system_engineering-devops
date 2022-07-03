@@ -1,2 +1,2 @@
 #!/bin/bash
-find -mindepth 0 -empty '\' | ls -1
+find -mindepth 0 -empty '\' | ls -x -1
