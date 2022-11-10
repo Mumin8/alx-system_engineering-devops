@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# print 9 times and a hi
+itr=1
+while [ $itr -le 10 ];
+do
+	if [ $((itr)) == 4 ]; then 		
+		echo "bad luck"
+	elif [ $((itr)) == 8 ]; then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((itr++))
+done
