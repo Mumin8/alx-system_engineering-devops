@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# distplay the hour and minutes
+itr1=0
+while [ $itr1 -le 12 ]
+do
+	itr2=1
+	echo "Hour: $itr1"
+	while [ $itr2 -le 59 ]
+	do
+		echo "$itr2"
+		((itr2++))
+	done
+	((itr1++))
+done
