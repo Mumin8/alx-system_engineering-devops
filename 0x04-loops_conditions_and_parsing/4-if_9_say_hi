@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # print 9 times and a hi
 itr=1
-while [ $itr -le 10 ];
+while [ $itr -le 11 ];
 do
-	if [ $((itr)) == 9 ]; then 
+	if [ $((itr)) == 10 ]; then 
 		echo "Hi"
 	else
 		echo "Best School"
