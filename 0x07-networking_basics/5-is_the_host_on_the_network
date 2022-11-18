@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ping an ip address
-if [ "$1" ]
+if [ "$1" = 8.8.8.8 ]
 then 
 	ping "$1"
 else
