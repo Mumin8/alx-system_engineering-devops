@@ -1,3 +1,4 @@
+# create file with puppet in /tmp
 file{ 'ALX':
   owner   => 'www-data',
   group   => 'www-data',
