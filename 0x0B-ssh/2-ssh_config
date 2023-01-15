@@ -1,6 +1,8 @@
-PasswordAuthentication no
-IdentityFile ~/.ssh/school
-SendEnv LANG LC_*
-HashKnownHosts yes
-GSSAPIAuthentication yes
-GSSAPIDelegateCredentials no
+# ssh_config
+
+Host *
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school
+    SendEnv LANG LC_*
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
