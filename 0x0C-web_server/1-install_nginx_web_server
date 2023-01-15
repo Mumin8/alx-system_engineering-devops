@@ -6,10 +6,11 @@ sudo apt install nginx
 mkdir /etc/nginx/static_content/
 touch /etc/nginx/static_content/index.html
 echo "Hello World!" > /etc/nginx/static_content/index.html
-server {
+printf %s "server {
         listen 80;
-        listen [::]:80;
+        listen [::]:80 default_server;
 	root /etc/nginx/static_content
 	index       index.html index.htm;
 }
+" > /etc/nginx/sites-available/default
 service nginx restart
