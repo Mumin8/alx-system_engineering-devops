@@ -13,10 +13,13 @@ mkdir /etc/nginx/html
 touch /etc/nginx/html/index.html
 echo "Hello World!" > /etc/nginx/html/index.html
 
+http {
 server {
 	listen      80 default_server;
 	listen      [::]:80 default_server;
 	root        /etc/nginx/html;
 	index       index.html index.htm;
 }
+}
+events {}
 service nginx restart
