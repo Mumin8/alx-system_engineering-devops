@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# install and configure nginx
+
+touch /var/www/html/index.html
+
+apt-get update                                                                  apt-get install -y nginx                                         
+mkdir /etc/nginx/html                                                          
+touch /etc/nginx/html/index.html   
+echo "Hello World!" > /etc/nginx/html/index.html                                                           
+http {                                                                         
+	server {         
+	listen      80 default_server;                                                 	listen      [::]:80 default_server; 
+	root        /var/www/html;
+	add_header  X-Served-By: $HOSTNAME;
+	index       index.html index.htm;                                             
+}
+}    
+events {}
