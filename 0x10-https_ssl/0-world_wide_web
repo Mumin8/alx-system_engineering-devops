@@ -1,20 +1,9 @@
 #!/usr/bin/env bash
 # Configure domain zone so that the subdomain
 
-#!/usr/bin/env bash
-
-# Usage: ./1-world_wide_web <domain> <subdomain>
-
-# Display information about subdomains.
-
-
-
 domain_information () {
-
     line=$(dig "$2".holberton.online | grep -A1 'ANSWER SECTION:' | tail -n 1)
-
     echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $5 " record and points to " $6}'
-
 }
 
 if [ "$#" == 1 ]
