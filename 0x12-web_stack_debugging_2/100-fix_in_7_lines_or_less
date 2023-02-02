@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# make a fix
+if [ "$#" -ne 1 ] then
+	echo "incorrect argument"
+fi
+result= $(sudo -u "$1" whoami)
+echo "$result"
