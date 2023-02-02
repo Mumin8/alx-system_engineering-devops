@@ -4,5 +4,5 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 user=$1
-result=$(su -c "$user" $user)
+result=$(su -c whoami $user)
 echo "$result"
