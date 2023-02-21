@@ -12,8 +12,8 @@ if __name__ == "__main__":
     user_name = user['username']
     value = []
     mydict = {}
-    for sub_dict in todo:        
-        if ID == str(sub_dict.get('userId')):            
+    for sub_dict in todo:
+        if ID == str(sub_dict.get('userId')):
             comp = sub_dict.get('completed')
             sub_dict['task'] = sub_dict['title']
             del sub_dict['completed']
