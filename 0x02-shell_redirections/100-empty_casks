@@ -1,2 +1,3 @@
 #!/bin/bash
-find -mindepth 0 -empty | ls -x -1
+find . -type f -empty -printf "%f\n" ; find . -type d -empty -printf "%f\n"
+
