@@ -3,5 +3,6 @@
 FILENAME="/etc/passwd"
 while IFS=: read -r username password userid groupid comment homedir cmdshell
 do
-	echo "$username:$userid:$homedir"
+	unset password groupid comment cmdshell
+	echo "$username:$userid:$homedir $password $groupid $comment $cmdshell"
 done < $FILENAME
