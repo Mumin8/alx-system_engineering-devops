@@ -8,8 +8,8 @@ def number_of_subscribers(subreddit):
     headers = {
         "User-Agent": "linux:0x16advancedapi:v1.0.0 (by /u/Mumin_8)"
     }
-    response = requests.get(my_url, headers=headers, allow_redirects=False)
-    if response.status_code == 302:
+    resp = requests.get(my_url, headers=headers, allow_redirects=False)
+    if resp.status_code == 302:
         return 0
-    results = response.json().get("data")
+    results = resp.json().get("data")
     return results.get("subscribers")
