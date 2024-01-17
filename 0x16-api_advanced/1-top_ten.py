@@ -3,11 +3,12 @@
 import requests
 
 def top_ten(subreddit):
-    """Return the total number of subscribers on a given subreddit."""
-
-    if subreddit is None or '':
-        return
+    """Print the titles of the top 10 hot posts on a given subreddit."""
     
+    if not subreddit:
+        print(None)
+        return
+
     my_url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
 
     headers = {
@@ -15,10 +16,14 @@ def top_ten(subreddit):
     }
    
     resp = requests.get(my_url, headers=headers, allow_redirects=False)
-    if resp.status_code == 404:
+
+    if resp.status_code != 200:
         print(None)
         return
-    results = resp.json().get("data")
-    results = results.get('children')
-    for result in results:
-        print(result['data']['title'])
+    
+    try:
+        results = resp.json().get("data", {}).get("children", [])
+        for result in results:
+            print(result['data']['title'])
+    except ValueError as e:
+        print(f"Error decoding JSON: {e}")
