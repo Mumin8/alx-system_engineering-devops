@@ -5,6 +5,8 @@ import requests
 
 def number_of_subscribers(subreddit):
     """Return the total number of subscribers on a given subreddit."""
+    if subreddit is None:
+        return None
     my_url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {
         "User-Agent": "linux:0x16advancedapi:v1.0.0 (by /u/Mumin_8)"
