@@ -4,6 +4,9 @@ import requests
 
 def top_ten(subreddit):
     """Return the total number of subscribers on a given subreddit."""
+
+    if subreddit is None or '':
+        return
     
     my_url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
 
