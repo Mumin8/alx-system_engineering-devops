@@ -16,12 +16,14 @@ def recurse(subreddit, hot_list=None, after=None):
     }
 
     try:
-        resp = requests.get(my_url, headers=headers, params=params, allow_redirects=False)
+        resp = requests.get(
+                my_url, headers=headers,
+                params=params, allow_redirects=False
+                )
         resp.raise_for_status()
-
         data = resp.json()['data']
         after = data.get('after')
-        
+
         for post in data['children']:
             hot_list.append(post['data']['title'])
 
