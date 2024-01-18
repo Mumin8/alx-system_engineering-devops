@@ -2,6 +2,7 @@
 """Function to query reddit api recursively"""
 import requests
 
+
 def recurse(subreddit, hot_list=None, after=None):
     """Returns a list of titles of all hot articles  on a given subreddit."""
     if hot_list is None:
