@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Function to query reddit api"""
+"""Function to query Reddit API"""
 import requests
-
+import sys
 
 def top_ten(subreddit):
-    """Return the total number of subscribers on a given subreddit."""
+    """Return the titles of the top 10 posts from a given subreddit."""
 
     my_url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
 
@@ -12,15 +12,25 @@ def top_ten(subreddit):
         "User-Agent": "linux:0x16advancedapi:v1.0.0 (by /u/Mumin_8)"
     }
 
-    resp = requests.get(my_url, headers=headers, allow_redirects=False)
-    if resp.status_code == 404:
-        print(None)
+    try:
+        resp = requests.get(my_url, headers=headers, allow_redirects=False)
+        resp.raise_for_status()  # Raise HTTPError for bad responses (4xx and 5xx)
+    except requests.exceptions.HTTPError as err:
+        print(f"Error: {err}")
         return
-    some_Obj = resp.json()
-    if some_Obj is not None:
-        results = resp.json().get("data")
-        results = results.get('children')
+    except requests.exceptions.RequestException as err:
+        print(f"Error: {err}")
+        return
+
+    try:
+        some_Obj = resp.json()
+        # Check if the response contains JSON data
+        if 'data' not in some_Obj:
+            print(f"No data found for subreddit '{subreddit}'")
+            return
+
+        results = some_Obj['data'].get('children', [])
         for result in results:
             print(result['data']['title'])
-    else:
-        pass
+    except requests.exceptions.JSONDecodeError as err:
+        print("None")
