@@ -1,22 +1,18 @@
 #!/usr/bin/python3
-"""Function to query reddit api"""
-import requests
+""" Module for task 1 """
 
 
 def top_ten(subreddit):
-    """Return the total number of subscribers on a given subreddit."""
-
-    my_url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
+    import requests
 
     headers = {
-        "User-Agent": "linux:0x16advancedapi:v1.0.0 (by /u/Mumin_8)"
+        'User-Agent': 'My-User-Agent'
     }
-
-    resp = requests.get(my_url, headers=headers, allow_redirects=False)
-    if resp.status_code == 200:
-        results = resp.json().get("data")
-        results = results.get('children')
-        for result in results:
-            print(result['data']['title'])
-    else:
-        print('None')
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    r = requests.get(url, headers=headers, allow_redirects=False)
+    if r.status_code > 300:
+        print("None")
+        return
+    listings = r.json()["data"]["children"]
+    for listing in listings:
+        print(listing["data"]["title"])
