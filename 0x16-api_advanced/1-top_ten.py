@@ -26,7 +26,7 @@ def top_ten(subreddit):
         some_Obj = resp.json()
         # Check if the response contains JSON data
         if 'data' not in some_Obj:
-            print(f"No data found for subreddit '{subreddit}'")
+            print(f"OK")
             return
 
         results = some_Obj['data'].get('children', [])
