@@ -1,3 +1,4 @@
+![Image Alt Text](third_Party_failure.jpg)
 On January 23, 2024, between 14:00 and 16:30 UTC, our system experienced a third-party service outage that affected the user authentication service. The impact resulted in service unavailability, rendering approximately 30% of users unable to log in.
 
 Timeline:
